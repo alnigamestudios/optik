@@ -918,7 +918,7 @@
             <div class="header-badge">✨ Elektronik Optik Okuma ✨</div>
             <h1>📝 Büt Sınavı</h1>
             <p class="subtitle">Başarıya giden yol buradan geçiyor! 💪</p>
-            <p class="info-text">50 Soru • A-B-C-D-E Seçenekli • Hemen Başla!</p>
+            <p class="info-text">50 Soru • Her Soru 2 Puan • Toplam 100 Puan • Hemen Başla!</p>
         </header>
 
         <!-- Motivation Banner -->
@@ -973,14 +973,21 @@
                             <circle class="progress-circle" id="scoreCircle" cx="90" cy="90" r="80"/>
                         </svg>
                         <div class="score-text">
-                            <div class="score-number" id="scoreNumber">0%</div>
-                            <div class="score-label">Başarı</div>
+                            <div class="score-number" id="scoreNumber">0</div>
+                            <div class="score-label">Puan</div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Points Badge -->
+                <div style="margin-bottom: 20px; padding: 16px 24px; background: linear-gradient(135deg, rgba(236,72,153,0.12), rgba(168,85,247,0.12)); border-radius: 16px; display: inline-block;">
+                    <span style="font-size: 0.75rem; font-weight: 600; color: var(--pink-600); text-transform: uppercase; letter-spacing: 1px;">Toplam Puan</span>
+                    <div style="font-size: 2.2rem; font-weight: 900; background: linear-gradient(135deg, var(--pink-600), var(--purple-500)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;" id="totalPoints">0 / 100</div>
+                    <span style="font-size: 0.75rem; color: var(--pink-500);">Her soru 2 puan</span>
+                </div>
+
                 <!-- Stats -->
-                <div class="stats-grid">
+                <div class="stats-grid" style="grid-template-columns: repeat(4, 1fr);">
                     <div class="stat-card correct-stat">
                         <div class="stat-icon">✅</div>
                         <div class="stat-value" id="correctCount">0</div>
@@ -995,6 +1002,11 @@
                         <div class="stat-icon">⬜</div>
                         <div class="stat-value" id="emptyCount">0</div>
                         <div class="stat-label">Boş</div>
+                    </div>
+                    <div class="stat-card" style="border: 1px solid var(--pink-300);">
+                        <div class="stat-icon">💯</div>
+                        <div class="stat-value" id="percentDisplay" style="color: var(--pink-700);">0%</div>
+                        <div class="stat-label">Başarı</div>
                     </div>
                 </div>
 
@@ -1233,11 +1245,12 @@
                 document.getElementById(`toggleExp${i}`).classList.add('visible');
             }
 
-            // Calculate score
+            // Calculate score and points
             const score = Math.round((correct / TOTAL_QUESTIONS) * 100);
+            const points = correct * 2; // her soru 2 puan
 
             // Show results
-            showResults(correct, wrong, empty, score);
+            showResults(correct, wrong, empty, score, points);
 
             // Hide submit section
             document.getElementById('submitSection').style.display = 'none';
@@ -1253,7 +1266,7 @@
             }, 300);
         }
 
-        function showResults(correct, wrong, empty, score) {
+        function showResults(correct, wrong, empty, score, points) {
             const resultsSection = document.getElementById('resultsSection');
             resultsSection.classList.add('visible');
 
@@ -1261,6 +1274,8 @@
             document.getElementById('correctCount').textContent = correct;
             document.getElementById('wrongCount').textContent = wrong;
             document.getElementById('emptyCount').textContent = empty;
+            document.getElementById('totalPoints').textContent = points + ' / 100';
+            document.getElementById('percentDisplay').textContent = score + '%';
 
             // Animate score circle
             const circumference = 2 * Math.PI * 80; // 502.65
@@ -1269,8 +1284,8 @@
                 document.getElementById('scoreCircle').style.strokeDashoffset = offset;
             }, 500);
 
-            // Animate score number
-            animateCounter('scoreNumber', score, '%');
+            // Animate score number (show points in circle)
+            animateCounter('scoreNumber', points, '');
 
             // Set emoji and messages based on score
             let emoji, title, subtitle, motivation;
