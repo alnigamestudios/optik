@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 Büt Sınavı Optik Okuma</title>
+    <meta name="description" content="Büt sınavı elektronik optik okuma sistemi - Cevaplarını kontrol et, başarını gör!">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink-50: #fdf2f8;
+            --pink-100: #fce7f3;
+            --pink-200: #fbcfe8;
+            --pink-300: #f9a8d4;
+            --pink-400: #f472b6;
+            --pink-500: #ec4899;
+            --pink-600: #db2777;
+            --pink-700: #be185d;
+            --pink-800: #9d174d;
+            --pink-900: #831843;
+            --purple-400: #c084fc;
+            --purple-500: #a855f7;
+            --purple-600: #9333ea;
+            --green-400: #4ade80;
+            --green-500: #22c55e;
+            --red-400: #f87171;
+            --red-500: #ef4444;
+            --yellow-400: #facc15;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.25);
+            --shadow: 0 8px 32px rgba(219, 39, 119, 0.15);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 25%, #fbcfe8 50%, #f9a8d4 75%, #f472b6 100%);
+            background-attachment: fixed;
+            color: #4a1942;
+            overflow-x: hidden;
+        }
+
+        /* Floating Hearts Background */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.15;
+            animation: floatHeart linear infinite;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.15;
+            }
+            90% {
+                opacity: 0.15;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(720deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Sparkle particles */
+        .sparkle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--pink-400);
+            border-radius: 50%;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 0.8; transform: scale(1); }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--pink-500), var(--purple-500));
+            color: white;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--pink-700), var(--purple-600), var(--pink-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .header .subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: var(--pink-600);
+            margin-bottom: 8px;
+        }
+
+        .header .info-text {
+            font-size: 0.9rem;
+            color: var(--pink-700);
+            opacity: 0.8;
+        }
+
+        /* Motivational Banner */
+        .motivation-banner {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(168, 85, 247, 0.1));
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 20px 25px;
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .motivation-banner .emoji {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .motivation-banner p {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--pink-800);
+            line-height: 1.5;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Progress Bar */
+        .progress-section {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .progress-header span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--pink-700);
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 12px;
+            background: var(--pink-100);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--pink-400), var(--purple-400), var(--pink-500));
+            border-radius: 10px;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background-size: 200% 100%;
+            animation: shimmer 2s ease-in-out infinite;
+            width: 0%;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Question Grid */
+        .questions-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: 0 4px 15px rgba(219, 39, 119, 0.08);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.4s ease-out both;
+        }
+
+        .question-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(219, 39, 119, 0.15);
+            border-color: var(--pink-300);
+        }
+
+        .question-card.answered {
+            border-color: var(--pink-400);
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .question-card.correct {
+            border-color: var(--green-400);
+            background: rgba(74, 222, 128, 0.08);
+        }
+
+        .question-card.wrong {
+            border-color: var(--red-400);
+            background: rgba(248, 113, 113, 0.08);
+        }
+
+        .question-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .question-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--pink-400), var(--purple-400));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .question-card.correct .question-number {
+            background: linear-gradient(135deg, var(--green-400), var(--green-500));
+        }
+
+        .question-card.wrong .question-number {
+            background: linear-gradient(135deg, var(--red-400), var(--red-500));
+        }
+
+        .question-label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--pink-800);
+        }
+
+        .question-status {
+            margin-left: auto;
+            font-size: 1.2rem;
+        }
+
+        /* Options */
+        .options-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .option-btn {
+            flex: 1;
+            min-width: 55px;
+            padding: 10px 8px;
+            border: 2px solid var(--pink-200);
+            border-radius: 12px;
+            background: white;
+            color: var(--pink-700);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .option-btn:hover {
+            border-color: var(--pink-400);
+            background: var(--pink-50);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
+        }
+
+        .option-btn:hover::before {
+            left: 100%;
+        }
+
+        .option-btn.selected {
+            background: linear-gradient(135deg, var(--pink-500), var(--purple-500));
+            border-color: transparent;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.35);
+        }
+
+        .option-btn.correct-answer {
+            background: linear-gradient(135deg, var(--green-400), var(--green-500)) !important;
+            border-color: transparent !important;
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.35);
+        }
+
+        .option-btn.wrong-answer {
+            background: linear-gradient(135deg, var(--red-400), var(--red-500)) !important;
+            border-color: transparent !important;
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.35);
+        }
+
+        .option-btn:disabled {
+            cursor: default;
+            transform: none;
+        }
+
+        .option-btn:disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Explanation Section */
+        .explanation {
+            margin-top: 12px;
+            padding: 14px 16px;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.05), rgba(168, 85, 247, 0.05));
+            border-radius: 12px;
+            border-left: 4px solid var(--pink-400);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--pink-900);
+            display: none;
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        .explanation.visible {
+            display: block;
+        }
+
+        .explanation strong {
+            color: var(--pink-600);
+        }
+
+        .explanation .exp-label {
+            font-weight: 700;
+            color: var(--pink-600);
+            margin-bottom: 4px;
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Toggle Explanation Button */
+        .toggle-exp-btn {
+            margin-top: 10px;
+            background: none;
+            border: 1px solid var(--pink-300);
+            color: var(--pink-600);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: none;
+        }
+
+        .toggle-exp-btn:hover {
+            background: var(--pink-100);
+            border-color: var(--pink-400);
+        }
+
+        .toggle-exp-btn.visible {
+            display: inline-block;
+        }
+
+        /* Submit Button */
+        .submit-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--pink-500), var(--purple-500), var(--pink-600));
+            background-size: 200% 200%;
+            color: white;
+            border: none;
+            padding: 18px 60px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(236, 72, 153, 0.4);
+            position: relative;
+            overflow: hidden;
+            animation: bgShift 3s ease-in-out infinite;
+        }
+
+        @keyframes bgShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 40px rgba(236, 72, 153, 0.5);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px) scale(1.01);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .submit-btn:disabled:hover {
+            transform: none;
+            box-shadow: 0 8px 30px rgba(236, 72, 153, 0.4);
+        }
+
+        .submit-warning {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: var(--pink-600);
+            opacity: 0.7;
+        }
+
+        /* Results Section */
+        .results-section {
+            display: none;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .results-section.visible {
+            display: block;
+        }
+
+        .results-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 35px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 12px 40px rgba(219, 39, 119, 0.15);
+        }
+
+        .results-emoji {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: bounce 1s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        .results-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--pink-600), var(--purple-600));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .results-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: var(--pink-500);
+            margin-bottom: 25px;
+        }
+
+        /* Score Circle */
+        .score-circle-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .score-circle {
+            width: 180px;
+            height: 180px;
+            position: relative;
+        }
+
+        .score-circle svg {
+            transform: rotate(-90deg);
+            width: 180px;
+            height: 180px;
+        }
+
+        .score-circle .bg-circle {
+            fill: none;
+            stroke: var(--pink-100);
+            stroke-width: 10;
+        }
+
+        .score-circle .progress-circle {
+            fill: none;
+            stroke: url(#scoreGradient);
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-dasharray: 502;
+            stroke-dashoffset: 502;
+            transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .score-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .score-text .score-number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--pink-600), var(--purple-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .score-text .score-label {
+            font-size: 0.75rem;
+            color: var(--pink-500);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 16px;
+            padding: 16px 12px;
+        }
+
+        .stat-card .stat-icon {
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+        }
+
+        .stat-card .stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--pink-700);
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.7rem;
+            color: var(--pink-500);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-card.correct-stat .stat-value { color: var(--green-500); }
+        .stat-card.wrong-stat .stat-value { color: var(--red-500); }
+        .stat-card.empty-stat .stat-value { color: var(--yellow-400); }
+
+        /* Motivation message in results */
+        .result-motivation {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.08), rgba(168, 85, 247, 0.08));
+            border-radius: 16px;
+            padding: 18px 24px;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: var(--pink-800);
+            line-height: 1.6;
+        }
+
+        /* Show All Explanations Button */
+        .show-all-exp-btn {
+            background: linear-gradient(135deg, var(--pink-400), var(--purple-400));
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 20px 0 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.3);
+        }
+
+        .show-all-exp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
+        }
+
+        /* Reset Button */
+        .reset-btn {
+            background: transparent;
+            border: 2px solid var(--pink-400);
+            color: var(--pink-600);
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            background: var(--pink-500);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Confetti */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            top: -20px;
+            animation: confettiFall linear forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-20px) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--pink-600);
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .footer .heart-icon {
+            color: var(--pink-500);
+            animation: heartbeat 1.5s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.3); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.2); }
+        }
+
+        /* Scroll to top */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pink-500), var(--purple-500));
+            color: white;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top-btn:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .option-btn {
+                min-width: 48px;
+                padding: 9px 6px;
+                font-size: 0.85rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+
+            .results-card {
+                padding: 25px 18px;
+            }
+
+            .submit-btn {
+                padding: 16px 45px;
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 12px;
+            }
+
+            .question-card {
+                padding: 14px 16px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Question number badges for sections */
+        .section-divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--pink-300), transparent);
+        }
+
+        .section-divider span {
+            background: var(--pink-100);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--pink-600);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Loading animation for submit */
+        .loading-dots {
+            display: inline-flex;
+            gap: 4px;
+        }
+
+        .loading-dots span {
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: loadDot 1.4s ease-in-out infinite;
+        }
+
+        .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes loadDot {
+            0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Hearts -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Sparkles -->
+    <div class="sparkle-container" id="sparkleContainer"></div>
+
+    <!-- Scroll to top -->
+    <button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header" id="pageHeader">
+            <div class="header-badge">✨ Elektronik Optik Okuma ✨</div>
+            <h1>📝 Büt Sınavı</h1>
+            <p class="subtitle">Başarıya giden yol buradan geçiyor! 💪</p>
+            <p class="info-text">50 Soru • A-B-C-D-E Seçenekli • Hemen Başla!</p>
+        </header>
+
+        <!-- Motivation Banner -->
+        <div class="motivation-banner" id="motivationBanner">
+            <div class="emoji">🌸✨🌸</div>
+            <p>Her soru seni hedefe bir adım daha yaklaştırıyor.<br>Sakin ol, odaklan ve elinden gelenin en iyisini yap! 💖</p>
+        </div>
+
+        <!-- Progress -->
+        <div class="progress-section" id="progressSection">
+            <div class="progress-header">
+                <span>📊 İlerleme Durumu</span>
+                <span id="progressText">0 / 50 soru cevaplandı</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressBar"></div>
+            </div>
+        </div>
+
+        <!-- Questions -->
+        <div class="questions-grid" id="questionsGrid">
+            <!-- Questions will be generated by JS -->
+        </div>
+
+        <!-- Submit Section -->
+        <div class="submit-section" id="submitSection">
+            <button class="submit-btn" id="submitBtn" onclick="evaluateExam()">
+                🎯 Sınavı Bitir ve Sonuçları Gör
+            </button>
+            <p class="submit-warning">⚡ Boş bıraktığın sorular yanlış sayılmaz, sadece boş olarak işaretlenir.</p>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+            <div class="results-card">
+                <div class="results-emoji" id="resultsEmoji">🎉</div>
+                <h2 class="results-title" id="resultsTitle">Sonuçların Hazır!</h2>
+                <p class="results-subtitle" id="resultsSubtitle">Harika gidiyorsun!</p>
+
+                <!-- Score Circle -->
+                <div class="score-circle-container">
+                    <div class="score-circle">
+                        <svg viewBox="0 0 180 180">
+                            <defs>
+                                <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ec4899"/>
+                                    <stop offset="50%" stop-color="#a855f7"/>
+                                    <stop offset="100%" stop-color="#ec4899"/>
+                                </linearGradient>
+                            </defs>
+                            <circle class="bg-circle" cx="90" cy="90" r="80"/>
+                            <circle class="progress-circle" id="scoreCircle" cx="90" cy="90" r="80"/>
+                        </svg>
+                        <div class="score-text">
+                            <div class="score-number" id="scoreNumber">0%</div>
+                            <div class="score-label">Başarı</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card correct-stat">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-value" id="correctCount">0</div>
+                        <div class="stat-label">Doğru</div>
+                    </div>
+                    <div class="stat-card wrong-stat">
+                        <div class="stat-icon">❌</div>
+                        <div class="stat-value" id="wrongCount">0</div>
+                        <div class="stat-label">Yanlış</div>
+                    </div>
+                    <div class="stat-card empty-stat">
+                        <div class="stat-icon">⬜</div>
+                        <div class="stat-value" id="emptyCount">0</div>
+                        <div class="stat-label">Boş</div>
+                    </div>
+                </div>
+
+                <!-- Motivation -->
+                <div class="result-motivation" id="resultMotivation"></div>
+            </div>
+
+            <!-- Show explanations button -->
+            <div style="text-align: center;">
+                <button class="show-all-exp-btn" onclick="toggleAllExplanations()">
+                    📖 Tüm Açıklamaları Göster / Gizle
+                </button>
+            </div>
+
+            <!-- Reset button -->
+            <div style="text-align: center;">
+                <button class="reset-btn" onclick="resetExam()">🔄 Sınavı Sıfırla</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Seninle gurur duyuyorum <span class="heart-icon">💖</span></p>
+            <p style="margin-top: 5px; font-size: 0.7rem;">Başarılar! 🌟</p>
+        </div>
+    </div>
+
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <script>
+        // ===== ANSWER KEY =====
+        const ANSWER_KEY = {
+            1:'A', 2:'D', 3:'B', 4:'C', 5:'E', 6:'E', 7:'D', 8:'C', 9:'A', 10:'D',
+            11:'B', 12:'B', 13:'A', 14:'B', 15:'C', 16:'E', 17:'E', 18:'B', 19:'C', 20:'D',
+            21:'A', 22:'A', 23:'C', 24:'B', 25:'E', 26:'C', 27:'D', 28:'A', 29:'C', 30:'A',
+            31:'B', 32:'E', 33:'A', 34:'C', 35:'D', 36:'B', 37:'A', 38:'E', 39:'C', 40:'B',
+            41:'D', 42:'A', 43:'E', 44:'C', 45:'B', 46:'B', 47:'C', 48:'C', 49:'C', 50:'C'
+        };
+
+        // ===== EXPLANATIONS =====
+        const EXPLANATIONS = {
+            1: `<strong>Doğru cevap A'dır.</strong> ÇOKETOPLA'da önce toplanacak aralık yazılır. Burada hacim aralığı E2'dır. Kripto, pozitif getiri ve düşük olmayan risk ölçütleri doğru sırayla kurulmuştur.<br><em>Eleyici çeldirici:</em> B seçeneğinde toplanacak aralık ile ölçüt aralığı karıştırılmıştır.`,
+            2: `<strong>Doğru cevap D'dir.</strong> Formül güncel fiyatın stop-loss seviyesinin altına düşmesini ve riskin yüksek olmasını birlikte kontrol eder. Sonra negatif getiri veya düşük hacim için izleme kararı verir.<br><em>Eleyici çeldirici:</em> E seçeneği riskin yüksek olmasını tek başına yeterli sayar.`,
+            3: `<strong>Doğru cevap B'dir.</strong> Sembol tam eşleşmeyle aranmalı, güncel fiyat 4. sütundan, stop-loss seviyesi 6. sütundan alınmalıdır.<br><em>Eleyici çeldirici:</em> A seçeneğinde yaklaşık eşleşme kullanılmıştır.`,
+            4: `<strong>Doğru cevap C'dir.</strong> Tüm satırı renklendirmek için D, F ve G sütunları sabitlenir; satır numarası değişken kalır.<br><em>Eleyici çeldirici:</em> B seçeneği tüm alanı sadece 2. satıra göre değerlendirir.`,
+            5: `<strong>Doğru cevap E'dir.</strong> Tireden önceki kısım BTC'dir. Kripto metni büyük harfe çevrilince KRİPTO olur.<br><em>Eleyici çeldirici:</em> C seçeneğinde Türkçe İ dönüşümü gözden kaçırılmıştır.`,
+            6: `<strong>Doğru cevap E'dir.</strong> Toplanacak aralık alış fiyatıdır. Hisse dışı, sembolü TRY ile biten ve hacmi 1 veya daha fazla olan kayıtlar süzülür.<br><em>Eleyici çeldirici:</em> D seçeneği *-TRY yerine -TRY kullanarak tam eşleşme arar.`,
+            7: `<strong>Doğru cevap D'dir.</strong> Risk yüksek ve getiri negatifse "Risk azalt" yazılır. Aksi halde fiyat alışın yüzde 20 üzerine çıkmışsa veya hacim 1000'den büyükse "Kâr izle" yazılır.<br><em>Eleyici çeldirici:</em> E seçeneği getirinin negatif olmasını tek başına yeterli sayar.`,
+            8: `<strong>Doğru cevap C'dir.</strong> Getiri 8. sütundan, güncel fiyat 4. sütundan, alış fiyatı 3. sütundan alınır ve iki şart VE ile bağlanır.<br><em>Eleyici çeldirici:</em> A seçeneği YADA kullandığı için iki şarttan birini yeterli görür.`,
+            9: `<strong>Doğru cevap A'dır.</strong> Gecikme cezası F2 aralığından toplanır. Gümrük durumu, desi ve rota ölçütleri doğru yazılmıştır.<br><em>Eleyici çeldirici:</em> B seçeneğinde toplanacak aralık yanlıştır.`,
+            10: `<strong>Doğru cevap D'dir.</strong> Desi bandı yaklaşık eşleşme gerektirir. C2 değeri K2 aralığında aranır, 2. sütundaki katsayı E2 ile çarpılır.<br><em>Eleyici çeldirici:</em> A seçeneği tam eşleşme arar.`,
+            11: `<strong>Doğru cevap B'dir.</strong> Onaylanmamış, desisi yüksek ve gecikmesi fazla gönderiler manuel kontrole düşer. Aksi halde ceza veya rota bilgisine göre operasyon riski değerlendirilir.<br><em>Eleyici çeldirici:</em> C seçeneği ceza şartını yanlış sonuçla eşleştirir.`,
+            12: `<strong>Doğru cevap B'dir.</strong> İlk tireden sonraki 2 karakter US, ikinci tireden sonraki 4 karakter 2026, son 3 karakter 04C olur.<br><em>Eleyici çeldirici:</em> A seçeneği formülün GL kısmını aldığını varsayar.`,
+            13: `<strong>Doğru cevap A'dır.</strong> Gümrük durumu B sütununda, gecikme süresi E sütunundadır. Satır bazlı biçimlendirme için sütun sabitlemesi doğru yapılmıştır.<br><em>Eleyici çeldirici:</em> B seçeneği tüm alanı sadece 2. satıra göre değerlendirir.`,
+            14: `<strong>Doğru cevap B'dir.</strong> Rota başlangıcı SOLDAN ile kontrol edilir. US veya CN koşulu YADA ile bağlanır ve gümrük durumunun onaylı olmaması ayrıca aranır.<br><em>Eleyici çeldirici:</em> A seçeneğinde satır tamamen sabitlenmiştir.`,
+            15: `<strong>Doğru cevap C'dir.</strong> Toplanacak aralık F2'dır. Depo İstanbul, operasyon kodu içinde HZ ve gecikme 10'dan büyük ölçütleri doğru kurulmuştur.<br><em>Eleyici çeldirici:</em> B seçeneği *HZ* yerine HZ kullanır.`,
+            16: `<strong>Doğru cevap E'dir.</strong> Gümrük durumu 2. sütundan, gecikme süresi 5. sütundan, desi 3. sütundan tam eşleşmeyle alınır.<br><em>Eleyici çeldirici:</em> A seçeneği blokaj koşulunda VE kullanır; soruda YADA gerekir.`,
+            17: `<strong>Doğru cevap E'dir.</strong> Kırmızı ve Sarı koşulu için iki ayrı ÇOKETOPLA yazılıp toplanmalıdır.<br><em>Eleyici çeldirici:</em> A seçeneği aynı ölçüt alanına ikinci metin ölçütünü hatalı ekler.`,
+            18: `<strong>Doğru cevap B'dir.</strong> Protokol numarası tam eşleşmeyle aranır. Triyaj puanı 8. sütun, sigorta tipi 5. sütundur.<br><em>Eleyici çeldirici:</em> A seçeneği yaklaşık eşleşme kullanır.`,
+            19: `<strong>Doğru cevap C'dir.</strong> Kırmızı aciliyet veya yüksek yatış süresi ile yüksek triyaj puanı kritik yatak kararı üretir. Sonra SGK dışı ve izolasyonlu kayıtlar ayrılır.<br><em>Eleyici çeldirici:</em> E seçeneği sigorta tipini tek başına kritik yatak nedeni sayar.`,
+            20: `<strong>Doğru cevap D'dir.</strong> İlk tireden sonraki 4 karakter 2026'dır.<br><em>Eleyici çeldirici:</em> C seçeneği ikinci tireden sonraki bölüme aittir.`,
+            21: `<strong>Doğru cevap A'dır.</strong> Kan grubunun son 3 karakteri Rh- olmalı ve aciliyet kodu Yeşil olmamalıdır.<br><em>Eleyici çeldirici:</em> B seçeneği tüm alanı yalnızca 2. satıra göre değerlendirir.`,
+            22: `<strong>Doğru cevap A'dır.</strong> Servis 6. sütundan, kan grubu 2. sütundan, aciliyet kodu 3. sütundan alınır.<br><em>Eleyici çeldirici:</em> B seçeneğinde servis ile kan grubu sırası ters yazılmıştır.`,
+            23: `<strong>Doğru cevap C'dir.</strong> Toplanacak aralık yatış süresidir. SGK dışı, triyaj 80 ve üzeri, izolasyon Evet ölçütleri doğru yazılmıştır.<br><em>Eleyici çeldirici:</em> E seçeneğinde >=80 tırnak içine alınmamıştır.`,
+            24: `<strong>Doğru cevap B'dir.</strong> Günlük KM aralığı toplanır. Batarya, hasar ve model kodu ölçütleri doğru kurulmuştur.<br><em>Eleyici çeldirici:</em> A seçeneği batarya yüzdesini toplamaya çalışır.`,
+            25: `<strong>Doğru cevap E'dir.</strong> Batarya 2. sütundan, kiralama durumu 6. sütundan alınır. Şartlardan biri yeterli olduğu için YADA kullanılır.<br><em>Eleyici çeldirici:</em> A seçeneği VE kullanarak iki şartı aynı anda zorunlu kılar.`,
+            26: `<strong>Doğru cevap C'dir.</strong> Araç kirada değilse ve batarya düşük ya da bakım kritikse satır renklendirilir.<br><em>Eleyici çeldirici:</em> E seçeneği batarya düşük ve bakım kritik koşullarını aynı anda ister.`,
+            27: `<strong>Doğru cevap D'dir.</strong> İlk iki karakter 35, üçüncü karakterden itibaren üç karakter EVA, son üç karakter 026'dır.<br><em>Eleyici çeldirici:</em> C seçeneği son üç karakteri eksik yorumlar.`,
+            28: `<strong>Doğru cevap A'dır.</strong> Batarya düşükse ve hasar veya kritik bakım şartlarından biri varsa çekici yönlendirilir. Aksi halde günlük km yüksekse menzil takibi yapılır.<br><em>Eleyici çeldirici:</em> B seçeneği günlük km şartını yanlış sonuçla eşleştirir.`,
+            29: `<strong>Doğru cevap C'dir.</strong> IZM* IZM ile başlayan istasyonları yakalar. Kiralama durumu arızalı olmayan ve bataryası 50'den büyük araçların günlük km toplamı alınır.<br><em>Eleyici çeldirici:</em> A seçeneği yalnızca tam olarak IZM yazan hücreleri arar.`,
+            30: `<strong>Doğru cevap A'dır.</strong> Bakım önceliği Kritik ise G2'deki model kodu M2 aralığında tam eşleşmeyle aranır ve açıklama getirilir.<br><em>Eleyici çeldirici:</em> B seçeneği yaklaşık eşleşme kullanır.`,
+            31: `<strong>Doğru cevap B'dir.</strong> İlk tireden sonraki karakterden başlanır ve dört karakter alınır: 2026.<br><em>Eleyici çeldirici:</em> D seçeneği başlangıç noktasını bir karakter kaydırır.`,
+            32: `<strong>Doğru cevap E'dir.</strong> İlk bölüm son iki karakter olan 07'yi verir. YAZIM.DÜZENİ sonucu Global Rota olur; ilk altı karakter Global'dır.<br><em>Eleyici çeldirici:</em> B seçeneği metnin tamamen büyük harfe çevrileceğini varsayar.`,
+            33: `<strong>Doğru cevap A'dır.</strong> TR-09A metni 6 karakterdir. 4. karakterden itibaren iki karakter 09 alınır. Sonuç 609 olur.<br><em>Eleyici çeldirici:</em> B seçeneği formülde olmayan tireyi sonuca ekler.`,
+            34: `<strong>Doğru cevap C'dir.</strong> @ işaretinden sonraki karakterden başlanır ve kalan metin alınır.<br><em>Eleyici çeldirici:</em> B seçeneği @ işaretini de sonuca dahil eder.`,
+            35: `<strong>Doğru cevap D'dir.</strong> A1 70'ten büyüktür ve B1 Kritik olduğu için YADA bloğu da doğrudur. Sonuç A olur.<br><em>Eleyici çeldirici:</em> A seçeneği C1 şartının yanlış olmasını sonucu bozuyor gibi yorumlar.`,
+            36: `<strong>Doğru cevap B'dir.</strong> İlk VE şartı yanlıştır çünkü A1 20'den küçüktür. İçteki YADA doğru olduğu için sonuç Öncelikli olur.<br><em>Eleyici çeldirici:</em> A seçeneği VIP olmayı tek başına Platin için yeterli sayar.`,
+            37: `<strong>Doğru cevap A'dır.</strong> ETOPLA'da önce ölçüt aralığı, sonra ölçüt, sonra toplam aralığı yazılır. TR-* ifadesi TR- ile başlayanları toplar.<br><em>Eleyici çeldirici:</em> D seçeneği TR- sonrasında yalnızca tek karakter arar.`,
+            38: `<strong>Doğru cevap E'dir.</strong> Toplam aralığı D2'tir. Adet ve durum ölçütleri doğru sırayla verilmiştir.<br><em>Eleyici çeldirici:</em> B seçeneğinde >100 tırnak içine alınmamıştır.`,
+            39: `<strong>Doğru cevap C'dir.</strong> EU veya ME koşulu için iki ayrı ÇOKETOPLA yazılıp toplanmalıdır.<br><em>Eleyici çeldirici:</em> B seçeneğinde YADA fonksiyonu ölçüt alanında yanlış kullanılmıştır.`,
+            40: `<strong>Doğru cevap B'dir.</strong> K7 değeri A2 aralığının ilk sütununda aranır, 4. sütun tam eşleşmeyle getirilir.<br><em>Eleyici çeldirici:</em> A seçeneği yaklaşık eşleşme kullanır.`,
+            41: `<strong>Doğru cevap D'dir.</strong> Sıralı bant tablosunda yaklaşık eşleşme için son parametre 1 olmalıdır.<br><em>Eleyici çeldirici:</em> A seçeneği tam eşleşme arar.`,
+            42: `<strong>Doğru cevap A'dır.</strong> SOLDAN ve BUL birlikte kullanılarak | işaretinden önceki model kodu alınır ve DÜŞEYARA ile açıklama getirilir.<br><em>Eleyici çeldirici:</em> E seçeneği yaklaşık eşleşme kullanır.`,
+            43: `<strong>Doğru cevap E'dir.</strong> Tüm satırı renklendirmek için C ve E sütunları sabitlenir, satır numarası değişken bırakılır.<br><em>Eleyici çeldirici:</em> B seçeneği tüm aralığı sadece 2. satıra göre değerlendirir.`,
+            44: `<strong>Doğru cevap C'dir.</strong> Birden fazla koşullu biçimlendirme kuralı aynı hücrede çalışabilir. Görünür sonuç kural sırasına ve "Doğruysa durdur" ayarına bağlıdır.<br><em>Eleyici çeldirici:</em> D seçeneği birden fazla kural uygulanamayacağını söyler; bu yanlıştır.`,
+            45: `<strong>Doğru cevap B'dir.</strong> ? joker karakteri tam olarak bir karakteri temsil eder. AB?09 ifadesi beş karakterli kodları yakalar.<br><em>Eleyici çeldirici:</em> A seçeneğindeki * karakter sayısını sınırlamaz.`,
+            46: `<strong>Doğru cevap B'dir.</strong> A'da virgül (,) kullanılmış, Türkçe Excel'de hata verir. D'de sayısal kod tırnak içine alınmış, tip uyumsuzluğu yaratır.`,
+            47: `<strong>Doğru cevap C'dir.</strong> Aranan değer (Kod) dizinin ilk sütununda olmalıdır. B2:F11 seçilirse ilk sütun "Müşteri" olur ve kod bulunamaz.`,
+            48: `<strong>Doğru cevap C'dir.</strong> F11 sabitlenmediği için formül aşağı çekilince veri aralığı kayar ve altlardaki veriler kapsama dışı kalır.`,
+            49: `<strong>Doğru cevap C'dir.</strong> A'da "SAMSUN" tırnaksızdır. B'de parametre sırası yanlıştır (Toplam aralığı sonda olmalı).`,
+            50: `<strong>Doğru cevap C'dir.</strong> Metin ölçütler mutlaka çift tırnak "" içinde yazılmalıdır.`
+        };
+
+        // ===== STATE =====
+        const TOTAL_QUESTIONS = 50;
+        const OPTIONS = ['A', 'B', 'C', 'D', 'E'];
+        let userAnswers = {};
+        let examSubmitted = false;
+        let allExplanationsVisible = false;
+
+        // ===== INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', () => {
+            generateQuestions();
+            createFloatingHearts();
+            createSparkles();
+            setupScrollButton();
+        });
+
+        function generateQuestions() {
+            const grid = document.getElementById('questionsGrid');
+            let html = '';
+
+            for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+                // Add section dividers
+                if (i === 1) {
+                    html += `<div class="section-divider"><span>📋 Sorular 1 - 10</span></div>`;
+                } else if (i === 11) {
+                    html += `<div class="section-divider"><span>📋 Sorular 11 - 20</span></div>`;
+                } else if (i === 21) {
+                    html += `<div class="section-divider"><span>📋 Sorular 21 - 30</span></div>`;
+                } else if (i === 31) {
+                    html += `<div class="section-divider"><span>📋 Sorular 31 - 40</span></div>`;
+                } else if (i === 41) {
+                    html += `<div class="section-divider"><span>📋 Sorular 41 - 50</span></div>`;
+                }
+
+                html += `
+                    <div class="question-card" id="questionCard${i}" style="animation-delay: ${(i % 10) * 0.03}s">
+                        <div class="question-header">
+                            <div class="question-number">${i}</div>
+                            <span class="question-label">Soru ${i}</span>
+                            <span class="question-status" id="status${i}"></span>
+                        </div>
+                        <div class="options-row">
+                            ${OPTIONS.map(opt => `
+                                <button class="option-btn" id="btn${i}_${opt}" onclick="selectOption(${i}, '${opt}')">
+                                    ${opt}
+                                </button>
+                            `).join('')}
+                        </div>
+                        <button class="toggle-exp-btn" id="toggleExp${i}" onclick="toggleExplanation(${i})">
+                            📖 Açıklamayı Göster
+                        </button>
+                        <div class="explanation" id="exp${i}">
+                            <span class="exp-label">📝 Açıklama</span>
+                            ${EXPLANATIONS[i] || ''}
+                        </div>
+                    </div>
+                `;
+            }
+
+            grid.innerHTML = html;
+        }
+
+        function selectOption(questionNum, option) {
+            if (examSubmitted) return;
+
+            // Deselect if clicking same option
+            if (userAnswers[questionNum] === option) {
+                delete userAnswers[questionNum];
+                OPTIONS.forEach(opt => {
+                    document.getElementById(`btn${questionNum}_${opt}`).classList.remove('selected');
+                });
+                document.getElementById(`questionCard${questionNum}`).classList.remove('answered');
+                document.getElementById(`status${questionNum}`).textContent = '';
+            } else {
+                // Select new option
+                userAnswers[questionNum] = option;
+                OPTIONS.forEach(opt => {
+                    const btn = document.getElementById(`btn${questionNum}_${opt}`);
+                    btn.classList.toggle('selected', opt === option);
+                });
+                document.getElementById(`questionCard${questionNum}`).classList.add('answered');
+                document.getElementById(`status${questionNum}`).textContent = '✏️';
+
+                // Little animation
+                const card = document.getElementById(`questionCard${questionNum}`);
+                card.style.transform = 'scale(1.02)';
+                setTimeout(() => card.style.transform = '', 200);
+            }
+
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const answered = Object.keys(userAnswers).length;
+            const percent = (answered / TOTAL_QUESTIONS) * 100;
+            document.getElementById('progressBar').style.width = percent + '%';
+            document.getElementById('progressText').textContent = `${answered} / ${TOTAL_QUESTIONS} soru cevaplandı`;
+        }
+
+        // ===== EVALUATE EXAM =====
+        function evaluateExam() {
+            examSubmitted = true;
+            let correct = 0;
+            let wrong = 0;
+            let empty = 0;
+
+            for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+                const card = document.getElementById(`questionCard${i}`);
+                const userAnswer = userAnswers[i];
+                const correctAnswer = ANSWER_KEY[i];
+
+                // Disable all buttons
+                OPTIONS.forEach(opt => {
+                    const btn = document.getElementById(`btn${i}_${opt}`);
+                    btn.disabled = true;
+                    btn.classList.remove('selected');
+                });
+
+                if (!userAnswer) {
+                    // Empty
+                    empty++;
+                    document.getElementById(`status${i}`).textContent = '⬜';
+                    // Show correct answer
+                    document.getElementById(`btn${i}_${correctAnswer}`).classList.add('correct-answer');
+                } else if (userAnswer === correctAnswer) {
+                    // Correct
+                    correct++;
+                    card.classList.add('correct');
+                    card.classList.remove('answered');
+                    document.getElementById(`status${i}`).textContent = '✅';
+                    document.getElementById(`btn${i}_${correctAnswer}`).classList.add('correct-answer');
+                } else {
+                    // Wrong
+                    wrong++;
+                    card.classList.add('wrong');
+                    card.classList.remove('answered');
+                    document.getElementById(`status${i}`).textContent = '❌';
+                    document.getElementById(`btn${i}_${userAnswer}`).classList.add('wrong-answer');
+                    document.getElementById(`btn${i}_${correctAnswer}`).classList.add('correct-answer');
+                }
+
+                // Show explanation toggle button
+                document.getElementById(`toggleExp${i}`).classList.add('visible');
+            }
+
+            // Calculate score
+            const score = Math.round((correct / TOTAL_QUESTIONS) * 100);
+
+            // Show results
+            showResults(correct, wrong, empty, score);
+
+            // Hide submit section
+            document.getElementById('submitSection').style.display = 'none';
+
+            // Show confetti if good score
+            if (score >= 50) {
+                launchConfetti();
+            }
+
+            // Scroll to results
+            setTimeout(() => {
+                document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+            }, 300);
+        }
+
+        function showResults(correct, wrong, empty, score) {
+            const resultsSection = document.getElementById('resultsSection');
+            resultsSection.classList.add('visible');
+
+            // Update stats
+            document.getElementById('correctCount').textContent = correct;
+            document.getElementById('wrongCount').textContent = wrong;
+            document.getElementById('emptyCount').textContent = empty;
+
+            // Animate score circle
+            const circumference = 2 * Math.PI * 80; // 502.65
+            const offset = circumference - (score / 100) * circumference;
+            setTimeout(() => {
+                document.getElementById('scoreCircle').style.strokeDashoffset = offset;
+            }, 500);
+
+            // Animate score number
+            animateCounter('scoreNumber', score, '%');
+
+            // Set emoji and messages based on score
+            let emoji, title, subtitle, motivation;
+
+            if (score >= 90) {
+                emoji = '🏆🎉🌟';
+                title = 'Muhteşem Başarı!';
+                subtitle = 'Sen bir yıldızsın! ⭐';
+                motivation = '🌟 İnanılmaz bir performans! Bu sınavda tam bir hakimiyet gösterdin. Büt sınavında da bu şekilde devam edersen harika sonuçlar alacaksın! Seninle çok gurur duyuyorum! 💖';
+            } else if (score >= 70) {
+                emoji = '🎉💪✨';
+                title = 'Harika Gidiyorsun!';
+                subtitle = 'Çok güzel bir performans!';
+                motivation = '💪 Çok iyi bir sonuç! Birkaç konuyu daha tekrar edersen mükemmel olacak. Yanlış yaptığın soruların açıklamalarını oku ve eksiklerini kapat. Başarıya çok yakınsın! 🌸';
+            } else if (score >= 50) {
+                emoji = '💪🌸📚';
+                title = 'İyi Gidiyorsun!';
+                subtitle = 'Biraz daha çalışma ile harika olacak!';
+                motivation = '📚 Yarısından fazlasını doğru yaptın, bu güzel bir başlangıç! Yanlış yaptığın soruları tekrar çöz, açıklamaları dikkatlice oku. Düzenli çalışarak çok daha iyi sonuçlar alabilirsin! Sen yaparsın! 💖';
+            } else if (score >= 30) {
+                emoji = '📚💜🌱';
+                title = 'Gelişim Zamanı!';
+                subtitle = 'Her düşüş bir kalkış içindir!';
+                motivation = '🌱 Daha gidecek yolun var ama endişelenme! Önce temel konuları tekrar et, sonra soruları yeniden çöz. Açıklamaları mutlaka oku. Adım adım ilerle, her gün biraz daha iyi olacaksın! 💪💖';
+            } else {
+                emoji = '💜🌸📖';
+                title = 'Konuları Tekrar Edelim';
+                subtitle = 'Her usta bir zamanlar çıraktı!';
+                motivation = '📖 Bu sonuç sadece başlangıç noktanı gösteriyor. Konuları baştan tekrar et, notlarını gözden geçir ve soruları yeniden çöz. Açıklamalara çok dikkat et. Çalışırsan kesinlikle başarırsın! Sana inanıyorum! 💖🌟';
+            }
+
+            document.getElementById('resultsEmoji').textContent = emoji;
+            document.getElementById('resultsTitle').textContent = title;
+            document.getElementById('resultsSubtitle').textContent = subtitle;
+            document.getElementById('resultMotivation').innerHTML = motivation;
+        }
+
+        function animateCounter(elementId, target, suffix = '') {
+            const el = document.getElementById(elementId);
+            let current = 0;
+            const increment = target / 50;
+            const interval = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(interval);
+                }
+                el.textContent = Math.round(current) + suffix;
+            }, 30);
+        }
+
+        // ===== EXPLANATIONS =====
+        function toggleExplanation(questionNum) {
+            const exp = document.getElementById(`exp${questionNum}`);
+            const btn = document.getElementById(`toggleExp${questionNum}`);
+            exp.classList.toggle('visible');
+            btn.textContent = exp.classList.contains('visible') ? '📖 Açıklamayı Gizle' : '📖 Açıklamayı Göster';
+        }
+
+        function toggleAllExplanations() {
+            allExplanationsVisible = !allExplanationsVisible;
+            for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+                const exp = document.getElementById(`exp${i}`);
+                const btn = document.getElementById(`toggleExp${i}`);
+                if (allExplanationsVisible) {
+                    exp.classList.add('visible');
+                    btn.textContent = '📖 Açıklamayı Gizle';
+                } else {
+                    exp.classList.remove('visible');
+                    btn.textContent = '📖 Açıklamayı Göster';
+                }
+            }
+        }
+
+        // ===== RESET =====
+        function resetExam() {
+            if (!confirm('Sınavı sıfırlamak istediğine emin misin?')) return;
+
+            examSubmitted = false;
+            userAnswers = {};
+            allExplanationsVisible = false;
+
+            for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+                const card = document.getElementById(`questionCard${i}`);
+                card.classList.remove('correct', 'wrong', 'answered');
+                document.getElementById(`status${i}`).textContent = '';
+                document.getElementById(`exp${i}`).classList.remove('visible');
+                document.getElementById(`toggleExp${i}`).classList.remove('visible');
+                document.getElementById(`toggleExp${i}`).textContent = '📖 Açıklamayı Göster';
+
+                OPTIONS.forEach(opt => {
+                    const btn = document.getElementById(`btn${i}_${opt}`);
+                    btn.disabled = false;
+                    btn.classList.remove('selected', 'correct-answer', 'wrong-answer');
+                });
+            }
+
+            document.getElementById('resultsSection').classList.remove('visible');
+            document.getElementById('submitSection').style.display = '';
+            updateProgress();
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ===== VISUAL EFFECTS =====
+        function createFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            const hearts = ['💖', '💗', '💕', '🌸', '✨', '💜', '🩷', '🌷'];
+
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('span');
+                heart.className = 'heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (12 + Math.random() * 18) + 'px';
+                heart.style.animationDuration = (10 + Math.random() * 20) + 's';
+                heart.style.animationDelay = Math.random() * 15 + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        function createSparkles() {
+            const container = document.getElementById('sparkleContainer');
+            for (let i = 0; i < 30; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 3 + 's';
+                sparkle.style.animationDuration = (2 + Math.random() * 2) + 's';
+                const colors = ['#ec4899', '#a855f7', '#f472b6', '#c084fc', '#fbcfe8'];
+                sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                container.appendChild(sparkle);
+            }
+        }
+
+        function launchConfetti() {
+            const container = document.getElementById('confettiContainer');
+            const colors = ['#ec4899', '#a855f7', '#f472b6', '#c084fc', '#22c55e', '#facc15', '#4ade80', '#fbcfe8'];
+            const shapes = ['🎉', '🌟', '✨', '💖', '🌸', '💜', '🩷', '⭐'];
+
+            for (let i = 0; i < 60; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('span');
+                    confetti.className = 'confetti-piece';
+                    confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.fontSize = (12 + Math.random() * 20) + 'px';
+                    confetti.style.animationDuration = (2 + Math.random() * 3) + 's';
+                    container.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), 5000);
+                }, i * 50);
+            }
+        }
+
+        function setupScrollButton() {
+            const btn = document.getElementById('scrollTopBtn');
+            window.addEventListener('scroll', () => {
+                btn.classList.toggle('visible', window.scrollY > 400);
+            });
+        }
+    </script>
+</body>
+</html>
